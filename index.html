@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)file:///Users/mikeyadan/Downloads/index_3.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ML Capital — Database Reactivation for Tech Recruiting Agencies</title>
+<link href="./index_files/css2" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #080808;
+    --white: #f5f2ee;
+    --accent: #c8f542;
+    --gray: #1a1a1a;
+    --muted: #666;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 48px;
+    mix-blend-mode: difference;
+  }
+
+  .logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 0.1em;
+    color: var(--white);
+  }
+
+  nav a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+
+  nav a:hover { opacity: 1; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 48px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse 60% 50% at 70% 40%, #1d2e0a 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-tag {
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.2s;
+  }
+
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(72px, 12vw, 160px);
+    line-height: 0.92;
+    letter-spacing: -0.01em;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.4s;
+  }
+
+  .hero-title span { color: var(--accent); }
+
+  .hero-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 40px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.6s;
+  }
+
+  .hero-sub {
+    font-size: clamp(16px, 2vw, 20px);
+    line-height: 1.6;
+    max-width: 480px;
+    color: rgba(245,242,238,0.7);
+  }
+
+  .hero-cta {
+    flex-shrink: 0;
+    background: var(--accent);
+    color: var(--black);
+    padding: 18px 40px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.2s, background 0.2s;
+  }
+
+  .hero-cta:hover {
+    transform: translate(-3px, -3px);
+    background: #d4f55a;
+  }
+
+  /* MARQUEE */
+  .marquee-wrap {
+    border-top: 1px solid #1f1f1f;
+    border-bottom: 1px solid #1f1f1f;
+    overflow: hidden;
+    padding: 16px 0;
+    background: var(--gray);
+  }
+
+  .marquee {
+    display: flex;
+    gap: 60px;
+    white-space: nowrap;
+    animation: marquee 20s linear infinite;
+  }
+
+  .marquee span {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    flex-shrink: 0;
+  }
+
+  .marquee span.accent { color: var(--accent); }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* PROBLEM */
+  .section {
+    padding: 120px 48px;
+  }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 48px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .problem-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .problem-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 6vw, 80px);
+    line-height: 1;
+    letter-spacing: 0.01em;
+  }
+
+  .problem-title span { color: var(--accent); }
+
+  .problem-body {
+    padding-top: 12px;
+  }
+
+  .problem-body p {
+    font-size: 17px;
+    line-height: 1.8;
+    color: rgba(245,242,238,0.65);
+    margin-bottom: 24px;
+  }
+
+  .problem-body p strong {
+    color: var(--white);
+    font-weight: 500;
+  }
+
+  /* WHAT WE DO */
+  .what {
+    background: var(--gray);
+    padding: 120px 48px;
+  }
+
+  .what-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 6vw, 80px);
+    line-height: 1;
+    margin-bottom: 80px;
+    max-width: 700px;
+  }
+
+  .what-title span { color: var(--accent); }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  .step {
+    background: var(--black);
+    padding: 48px 36px;
+    position: relative;
+  }
+
+  .step-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 64px;
+    color: #1f1f1f;
+    line-height: 1;
+    margin-bottom: 24px;
+  }
+
+  .step-title {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 16px;
+    color: var(--white);
+  }
+
+  .step-body {
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(245,242,238,0.55);
+  }
+
+  .step-accent {
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 48px;
+    background: var(--accent);
+  }
+
+  /* WHO */
+  .who {
+    padding: 120px 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .who-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 5vw, 72px);
+    line-height: 1;
+  }
+
+  .who-title span { color: var(--accent); }
+
+  .who-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .who-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba(245,242,238,0.7);
+    padding-bottom: 20px;
+    border-bottom: 1px solid #1f1f1f;
+  }
+
+  .who-list li:last-child { border-bottom: none; }
+
+  .who-list li::before {
+    content: '→';
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* CTA */
+  .cta-section {
+    background: var(--accent);
+    padding: 120px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .cta-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 6vw, 80px);
+    color: var(--black);
+    line-height: 1;
+    max-width: 600px;
+  }
+
+  .cta-right {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 16px;
+  }
+
+  .cta-btn {
+    background: var(--black);
+    color: var(--accent);
+    padding: 20px 48px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.2s;
+  }
+
+  .cta-btn:hover { transform: translate(-3px, -3px); }
+
+  .cta-note {
+    font-size: 13px;
+    color: rgba(8,8,8,0.6);
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 40px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #1a1a1a;
+  }
+
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 0.1em;
+  }
+
+  .footer-copy {
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 20px 24px; }
+    .hero { padding: 0 24px 60px; }
+    .hero-bottom { flex-direction: column; align-items: flex-start; }
+    .section { padding: 80px 24px; }
+    .problem-grid { grid-template-columns: 1fr; gap: 40px; }
+    .what { padding: 80px 24px; }
+    .steps { grid-template-columns: 1fr; }
+    .who { padding: 80px 24px; grid-template-columns: 1fr; gap: 40px; }
+    .cta-section { padding: 80px 24px; flex-direction: column; align-items: flex-start; }
+    .cta-right { align-items: flex-start; }
+    footer { padding: 32px 24px; flex-direction: column; gap: 12px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">ML Capital</div>
+  <a href="mailto:mikey@mlcapital.org">mikey@mlcapital.org</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-tag">Database Reactivation for Tech Recruiting Agencies</div>
+  <h1 class="hero-title">Your next<br>client is<br><span>already</span><br>in your list.</h1>
+  <div class="hero-bottom">
+    <p class="hero-sub">We turn your cold candidate and client database into warm conversations — without sourcing a single new lead or spending more on ads.</p>
+    <a href="https://calendly.com/mikey-mlcapital/30min" target="_blank" class="hero-cta">Book a free call</a>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee">
+    <span>Tech Staffing</span>
+    <span class="accent">✦</span>
+    <span>Engineering Recruitment</span>
+    <span class="accent">✦</span>
+    <span>Database Reactivation</span>
+    <span class="accent">✦</span>
+    <span>Done For You</span>
+    <span class="accent">✦</span>
+    <span>Revenue Recovery</span>
+    <span class="accent">✦</span>
+    <span>Tech Staffing</span>
+    <span class="accent">✦</span>
+    <span>Engineering Recruitment</span>
+    <span class="accent">✦</span>
+    <span>Database Reactivation</span>
+    <span class="accent">✦</span>
+    <span>Done For You</span>
+    <span class="accent">✦</span>
+    <span>Revenue Recovery</span>
+    <span class="accent">✦</span>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section class="section">
+  <div class="section-label">The problem</div>
+  <div class="problem-grid">
+    <div class="problem-title">You paid to<br>build that list.<br><span>Now it's</span><br><span>dead.</span></div>
+    <div class="problem-body">
+      <p>Most tech recruiting agencies have <strong>hundreds — sometimes thousands</strong> of past clients and warm contacts sitting untouched in their CRM.</p>
+      <p>They paid to acquire every one of them. Through referrals, placements, cold outreach, conferences. And then life got busy, and the follow-up never happened.</p>
+      <p>That's not a dead list. <strong>That's revenue waiting to be unlocked.</strong> You just need the right system to wake it up.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE DO -->
+<section class="what">
+  <div class="section-label">What we do</div>
+  <h2 class="what-title">We build the system.<br>You close <span>the deals.</span></h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-accent"></div>
+      <div class="step-num">01</div>
+      <div class="step-title">We audit your database</div>
+      <p class="step-body">We go through your existing client and candidate list and identify every warm contact that's gone cold. No guesswork — we find the money first.</p>
+    </div>
+    <div class="step">
+      <div class="step-accent"></div>
+      <div class="step-num">02</div>
+      <div class="step-title">We build the sequence</div>
+      <p class="step-body">We write and set up a multi-step reactivation email sequence tailored to your agency and your contacts. Personalized, human, and built to get replies.</p>
+    </div>
+    <div class="step">
+      <div class="step-accent"></div>
+      <div class="step-num">03</div>
+      <div class="step-title">You get warm leads</div>
+      <p class="step-body">We hand you replies from companies ready to hire again. You focus on closing. We handle everything before the conversation starts.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHO -->
+<section class="who">
+  <div>
+    <div class="section-label">Who this is for</div>
+    <h2 class="who-title">Built for tech<br>recruiting<br><span>founders.</span></h2>
+  </div>
+  <ul class="who-list">
+    <li>You run a small tech or engineering staffing agency in the US</li>
+    <li>You have a database of past clients or candidates you haven't followed up with</li>
+    <li>You're tired of spending money on new leads when the old ones are sitting there</li>
+    <li>You want a done-for-you system — not another tool to manage yourself</li>
+    <li>You're ready to move fast and see results within 30 days</li>
+  </ul>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2 class="cta-title">Ready to turn your cold list into revenue?</h2>
+  <div class="cta-right">
+    <a href="https://calendly.com/mikey-mlcapital/30min" target="_blank" class="cta-btn">Book a free call</a>
+    <span class="cta-note">No pitch. Ju</span></div></section></body></html>
